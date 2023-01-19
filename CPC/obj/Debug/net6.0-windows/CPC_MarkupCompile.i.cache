@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\bhath\source\repos\CPC\CPC\App.xaml
-3-1618935848
+4338444586
 1-1904236758
-71062870781
+8-247868096
 219-239520930
-MainWindow.xaml;userControlHistoryShowing.xaml;userControlSalaryEntering.xaml;
+ADDNewUserControl.xaml;MainWindow.xaml;userControlHistoryShowing.xaml;userControlSalaryEntering.xaml;
 
-False
+True
 

@@ -207,7 +207,7 @@ namespace CPC {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CPC;component/usercontrolsalaryentering.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CPC;V1.0.0.0;component/usercontrolsalaryentering.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\userControlSalaryEntering.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
