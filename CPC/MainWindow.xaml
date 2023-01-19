@@ -145,7 +145,34 @@
                                              Foreground="White"/>
 
                                 <TextBlock Text="History" 
-                                           Margin="10"
+                                           Margin="12"
+                                           FontSize="20"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <!--add to master table-->
+                        <!-- normal -->
+
+                        <Button x:Name="addInternToMaster_btn" 
+                                     Height="100"
+                                     Margin="0"
+                                     Background="Transparent"
+                                     Foreground="White"
+                                     BorderBrush="Transparent">
+
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center">
+
+                                <f:IconImage Icon="UserPlus"
+                                             Width="50"
+                                             Height="50"
+                                             Margin="10"
+                                             Foreground="White"/>
+
+                                <TextBlock Text="Newbie" 
+                                           Margin="5"
                                            FontSize="20"
                                            VerticalAlignment="Center"/>
                             </StackPanel>
