@@ -5,9 +5,48 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CPC"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="630" d:DesignWidth="1000"
              Background="Coral">
     <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions >
+                <!--personal details-->
+                <ColumnDefinition Width="300"/>
+                <!--work details-->
+                <ColumnDefinition Width="300"/>
+                <!--bank details-->
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--personal details-->
+            <Border Grid.Column="0">
+                <StackPanel>
+                    
+                    
+                    <Border BorderBrush="white"
+                            BorderThickness="1"
+                            CornerRadius="6">
+
+                    <StackPanel>
+                        <Label Content="ID" FontFamily="Segoe UI Symbol" Foreground="White"/>
+                        <TextBox Height="30"
+                                Background="white"
+                                Margin="5" 
+                                Name="ID" />
+                    </StackPanel>
+                        
+            </Border>
+
+
+
+
+
+
+
+            </StackPanel>
+            </Border>
+
+        </Grid>
             
     </Grid>
 </UserControl>

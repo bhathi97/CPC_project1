@@ -65,5 +65,10 @@ namespace CPC
         {
             content.Content = new userControlSalaryEntering();
         }
+
+        private void salaryHistory_btn_Click(object sender, RoutedEventArgs e)
+        {
+            content.Content = new ADDNewUserControl();
+        }
     }
 }

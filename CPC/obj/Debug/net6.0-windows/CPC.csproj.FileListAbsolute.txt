@@ -50,3 +50,5 @@ C:\Users\bhath\source\repos\CPC\CPC\obj\Debug\net6.0-windows\userControlSalaryEn
 C:\Users\bhath\source\repos\CPC\CPC\obj\Debug\net6.0-windows\userControlSalaryEntering.baml
 C:\Users\bhath\source\repos\CPC\CPC\obj\Debug\net6.0-windows\userControlHistoryShowing.g.cs
 C:\Users\bhath\source\repos\CPC\CPC\obj\Debug\net6.0-windows\userControlHistoryShowing.baml
+C:\Users\bhath\source\repos\CPC\CPC\obj\Debug\net6.0-windows\ADDNewUserControl.g.cs
+C:\Users\bhath\source\repos\CPC\CPC\obj\Debug\net6.0-windows\ADDNewUserControl.baml

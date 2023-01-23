@@ -20,6 +20,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 using Microsoft.Data.Sql;
 using System.Text.RegularExpressions;
 using System.Data;
+using System.IO;
 
 namespace CPC
 {
@@ -155,6 +156,7 @@ namespace CPC
 
         private void deleteRecord_Click(object sender, RoutedEventArgs e)
         {
+            
 
         }
 
@@ -411,17 +413,54 @@ namespace CPC
 
         }
 
+        private void exportToText_Click(object sender, RoutedEventArgs e)
+        {
+            /*try
+            {
+                string path1 = @"C:\CPC\";
+                string path2 = System.IO.Path.Combine(path1, AddingMonth.Text);
+                if (!Directory.Exists(path1))
+                {
+                    Directory.CreateDirectory(path1);
+                }
+                if (!Directory.Exists(path2))
+                {
+                    Directory.CreateDirectory(path2);
+                }
+                if (Directory.Exists(path2))
+                {
+                    TextWriter textWriter = new StreamWriter(path2);
 
+                    for(int i = 0; i < ; i++)
+                    {
+
+                    }
+                }
+
+
+
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "error (chech the month field)", MessageBoxButton.OKCancel);
+            }
+            */
+
+            
+            
+
+        }
+
+        //to see table data if there remain 
        
-
-
-
-
-        
-
-
-
-
+        private void seeTable_Click(object sender, RoutedEventArgs e)
+        {
+            SqlCommand sqlcommand = new SqlCommand("select * from TempararySalaryTable",connection);
+            SqlDataAdapter sqldataadapter = new SqlDataAdapter(sqlcommand);
+            DataTable showdatatable = new DataTable();
+            sqldataadapter.Fill(showdatatable);
+            dataShowingTable.ItemsSource = showdatatable.DefaultView;
+        }
     }
 
        

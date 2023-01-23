@@ -122,7 +122,7 @@
                             </Button>
 
                         </Border>
-                        
+
 
                         <!--salary history-->
                         <!-- normal -->
@@ -136,7 +136,7 @@
 
                             <Button x:Name="salaryHistory_btn" 
                                      Height="100"
-                                     Margin="0">
+                                     Margin="0" Click="salaryHistory_btn_Click">
 
 
                                 <Button.Style>
@@ -252,9 +252,6 @@
                 </Border>
 
 
-
-
-
                 <!--contentBar-->
                 <Border CornerRadius="0,10,10,0" Grid.ColumnSpan="2" Margin="200,0,0,0">
                     <Border.Background>
@@ -292,28 +289,112 @@
 
                             <Button x:Name="btnClose"
                                     Width="30"
-                                    BorderBrush="Transparent"
-                                    Background="Transparent"
-                                    Click="btnClose_Click">
+                                    Click="btnClose_Click"
+                                    >
+
+
+
+
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                    <Border Background="{TemplateBinding Background}"
+                                                            CornerRadius="4">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="PaleVioletRed"/>
+                                                
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+
+
+
                                 <f:IconImage Icon="WindowClose" Foreground="White" />
 
                             </Button>
 
                             <Button x:Name="btnMax"
                                     Width="30"
-                                    BorderBrush="Transparent"
+                                    
                                     Click="btnMax_Click"
-                                    Background="Transparent">
+                                    >
+
+
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        
+                                        <Setter Property="Background" Value="Transparent"/>
+
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                    <Border Background="{TemplateBinding Background}"
+                                                            CornerRadius="4">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="PaleVioletRed"/>
+
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+
+
                                 <f:IconImage Icon="WindowRestore" Foreground="White"/>
                             </Button>
 
 
                             <Button x:Name="btnMin"
                                     Width="30"
-                                    BorderBrush="Transparent"
+                                    
                                     Click="btnMin_Click"
-                                    Background="Transparent">
-                                <f:IconImage Icon="Minus" Foreground="White"/>
+                                    >
+
+
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="Transparent"/>
+
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                    <Border Background="{TemplateBinding Background}"
+                                                            CornerRadius="4">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="PaleVioletRed"/>
+
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+
+
+
+
+
+                                <f:IconImage Icon="WindowMinimize" Foreground="White"/>
                             </Button>
 
                         </StackPanel>
