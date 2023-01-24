@@ -22,6 +22,9 @@ using System.Text.RegularExpressions;
 using System.Data;
 using System.IO;
 
+
+
+
 namespace CPC
 {
     /// <summary>
@@ -424,29 +427,48 @@ namespace CPC
             try
             {
                 string path1 = @"C:\CPC\";
-                string fileName = AddingMonth.Text +" "+AddingYear.Text;
-                string path2 = System.IO.Path.Combine(path1, "" + fileName + ".txt");
+                string fileName = AddingYear.Text+" "+ AddingMonth.Text;
+                string path2 = System.IO.Path.Combine(path1,fileName + ".txt");
                 if (!Directory.Exists(path1))
                 {
                     Directory.CreateDirectory(path1);
                     MessageBox.Show(path1,"created path",MessageBoxButton.OK);
                 }
-                if (!Directory.Exists(path2) && AddingMonth.Text.Length != 0)
+                if (!Directory.Exists(path2) && AddingMonth.Text.Length != 0 && AddingYear.Text.Length !=0)
                 {
-                    File.CreateText(path2);
-                    MessageBox.Show("File was created for month "+ AddingMonth.Text , "Error" , MessageBoxButton.OK);
-                }
-
-
-                TextWriter textWriter = new StreamWriter(path2);
-                foreach (DataRowView dr in dataShowingTable.ItemsSource)
-                {
-                    foreach (DataColumn dc in dr.Row.Table.Columns)
+                    using (TextWriter writer = new StreamWriter(path2))
                     {
-                        //---->
-                       
+                        // Write to the file here
+                        /*sw.WriteLine("Hello, World!");*/
+                        /*for (int i = 0; i < dataShowingTable.Items.Count - 1; i++)
+                        {
+                            for (int j = 0; j < dataShowingTable.Columns.Count; j++)
+                            {
+                                if (j < dataShowingTable.Columns.Count - 1)
+                                {
+                                    writer.WriteLine(dataShowingTable.);
+                                }
+                            }
+                            writer.WriteLine();
+                        }*/
+
+
+                        foreach (DataRowView dr in dataShowingTable.ItemsSource)
+                        {
+                            writer.WriteLine(dr[0].ToString().PadRight(10,'0')+ dr[13].ToString().PadRight(10, '0') + "\t" + dr[1].ToString());
+                        }
+
+
+
+
                     }
+                    //File.CreateText(path2);
+
+                    MessageBox.Show("File was created for "+ AddingMonth.Text + " " + AddingYear.Text, "Error" , MessageBoxButton.OK);
                 }
+
+                //TextWriter textWriter = new StreamWriter(path2);
+                
 
                    
        
