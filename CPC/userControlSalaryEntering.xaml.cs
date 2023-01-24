@@ -64,16 +64,19 @@ namespace CPC
                     //check salarySotere table
                     SqlDataAdapter sda1 = new SqlDataAdapter("SELECT count(ID) FROM SalaryStoreTable WHERE ID ='" + InternID.Text + "' AND Month ='" + AddingMonth.Text + "' AND Year ='" + AddingYear.Text + "' AND AccountNo ='" + InternBankAccNo.Text + "'", connection);
                     DataTable dt1 = new DataTable();
+                    dt1.AcceptChanges();
                     sda1.Fill(dt1);
 
                     //check temperary table
                     SqlDataAdapter sda2 = new SqlDataAdapter("SELECT count(ID) FROM TempararySalaryTable WHERE ID ='" + InternID.Text + "'", connection);
                     DataTable dt2 = new DataTable();
+                    dt2.AcceptChanges();
                     sda2.Fill(dt2);
 
                     //check thet Id in the master table
                     SqlDataAdapter sda3 = new SqlDataAdapter("SELECT count(ID) FROM InternsMasterTable WHERE ID ='" + InternID.Text + "'", connection);
                     DataTable dt3 = new DataTable();
+                    dt3.AcceptChanges();
                     sda3.Fill(dt3);
 
                     if(dt3.Rows[0][0].ToString() == "0") 
@@ -151,7 +154,10 @@ namespace CPC
 
         private void update_Click(object sender, RoutedEventArgs e)
         {
-
+            /*foreach (DataRowView dr in dataShowingTable.ItemsSource)
+            {
+                MessageBox.Show(dr[0].ToString());
+            }*/
         }
 
         private void deleteRecord_Click(object sender, RoutedEventArgs e)
@@ -415,44 +421,53 @@ namespace CPC
 
         private void exportToText_Click(object sender, RoutedEventArgs e)
         {
-            /*try
+            try
             {
                 string path1 = @"C:\CPC\";
-                string path2 = System.IO.Path.Combine(path1, AddingMonth.Text);
+                string fileName = AddingMonth.Text +" "+AddingYear.Text;
+                string path2 = System.IO.Path.Combine(path1, "" + fileName + ".txt");
                 if (!Directory.Exists(path1))
                 {
                     Directory.CreateDirectory(path1);
+                    MessageBox.Show(path1,"created path",MessageBoxButton.OK);
                 }
-                if (!Directory.Exists(path2))
+                if (!Directory.Exists(path2) && AddingMonth.Text.Length != 0)
                 {
-                    Directory.CreateDirectory(path2);
+                    File.CreateText(path2);
+                    MessageBox.Show("File was created for month "+ AddingMonth.Text , "Error" , MessageBoxButton.OK);
                 }
-                if (Directory.Exists(path2))
-                {
-                    TextWriter textWriter = new StreamWriter(path2);
 
-                    for(int i = 0; i < ; i++)
+
+                TextWriter textWriter = new StreamWriter(path2);
+                foreach (DataRowView dr in dataShowingTable.ItemsSource)
+                {
+                    foreach (DataColumn dc in dr.Row.Table.Columns)
                     {
-
+                        //---->
+                       
                     }
                 }
 
+                   
+       
+
+    
 
 
-
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "error (chech the month field)", MessageBoxButton.OKCancel);
             }
-            */
 
-            
-            
+
+
+
 
         }
 
         //to see table data if there remain 
-       
+
         private void seeTable_Click(object sender, RoutedEventArgs e)
         {
             SqlCommand sqlcommand = new SqlCommand("select * from TempararySalaryTable",connection);
