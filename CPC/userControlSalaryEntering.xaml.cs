@@ -150,17 +150,16 @@ namespace CPC
 
         //---------------------------------------------------------
 
+        //add new mean clear all fiels to enter new data input
         private void addNew_Click(object sender, RoutedEventArgs e)
         {
-
+            cleanAllTxt();
         }
 
+        //update selected data row
         private void update_Click(object sender, RoutedEventArgs e)
         {
-            /*foreach (DataRowView dr in dataShowingTable.ItemsSource)
-            {
-                MessageBox.Show(dr[0].ToString());
-            }*/
+            
         }
 
         private void deleteRecord_Click(object sender, RoutedEventArgs e)
@@ -497,6 +496,48 @@ namespace CPC
             DataTable showdatatable = new DataTable();
             sqldataadapter.Fill(showdatatable);
             dataShowingTable.ItemsSource = showdatatable.DefaultView;
+        }
+
+        //when some row is select fill textboxes according to
+        private void dataShowingTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGrid dataGrid = (DataGrid)sender;
+            DataRowView rowView = dataGrid.SelectedItem as DataRowView;
+            if(rowView != null )
+            {
+                InternID.Text = rowView["ID"].ToString();
+                AddingMonth.Text = rowView["Month"].ToString();
+                AddingYear.Text = rowView["Year"].ToString();
+                AddingFullWorkDays.Text = rowView["FullWorkDays"].ToString();
+                AddingHalfWorkDays.Text = rowView["HalfWorkDays"].ToString();
+            }
+        }
+
+        //clear all fields
+        public void cleanAllTxt()
+        {
+            TextBox[] txtBoxes = { InternID,InternName,InternSalaryPerDay,InternBranchName,InternBankName,InternBankAccNo,InternBankCode,InternBranchCode,AddingFullWorkDays};
+            foreach (var i in txtBoxes)
+            {
+                i.Clear();
+            }
+            AddingMonth.Text = string.Empty;
+            AddingYear.Text = string.Empty;
+            ShowTotalSalary.Text = string.Empty;
+            ShowTotalWorkDays.Text = string.Empty;
+
+
+            try
+            {
+                AddingHalfWorkDays.Text = string.Empty;
+            }
+            catch(Exception ex)
+            {
+                
+            }
+
+            
+
         }
     }
 

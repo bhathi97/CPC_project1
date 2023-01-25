@@ -313,7 +313,7 @@
                     <StackPanel >
                         <DataGrid x:Name="dataShowingTable" 
                                   Margin="5"
-                                  Height="300"
+                                  Height="300" SelectionChanged="dataShowingTable_SelectionChanged"
                                   />
                     </StackPanel>
 
